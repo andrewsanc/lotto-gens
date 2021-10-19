@@ -1,8 +1,12 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./Lotto.css";
 
 const Lotto = ({ title = "Lotto", numBalls, maxNum }) => {
   const [lottoBalls, setLottoBalls] = useState([]);
+
+  useEffect(() => {
+    generateBalls();
+  }, []);
 
   const generateBalls = () => {
     let newLottoBalls = [];
@@ -14,14 +18,16 @@ const Lotto = ({ title = "Lotto", numBalls, maxNum }) => {
   };
 
   const renderBalls = lottoBalls.map((ball) => {
-    return <div>{ball}</div>;
+    return <div className='ball'>{ball}</div>;
   });
 
   return (
-    <div class='container'>
+    <div className='container'>
       <h4>{title}</h4>
-      {renderBalls}
-      <button onClick={() => generateBalls()}>Generate</button>
+      <div className='lotto-balls'>{renderBalls}</div>
+      <button className='button' onClick={() => generateBalls()}>
+        Generate
+      </button>
     </div>
   );
 };

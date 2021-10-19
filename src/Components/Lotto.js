@@ -1,13 +1,18 @@
 import React, { useState } from "react";
 
 const Lotto = ({ title = "Lotto", numBalls, maxNum }) => {
-  const [balls, setBalls] = useState([]);
+  const [lottoBalls, setLottoBalls] = useState([]);
 
   const generateBalls = () => {
-    // for (let )
+    let newLottoBalls = [];
+    for (let i = 0; i < numBalls; i++) {
+      let ballNumber = Math.floor(Math.random() * (maxNum - 1) + 1);
+      newLottoBalls.push(ballNumber);
+    }
+    setLottoBalls(newLottoBalls);
   };
 
-  const renderBalls = [1, 2, 3].forEach((ball) => {
+  const renderBalls = lottoBalls.map((ball) => {
     return <div>{ball}</div>;
   });
 

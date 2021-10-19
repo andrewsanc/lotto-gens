@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import "./Lotto.css";
 
 const Lotto = ({ title = "Lotto", numBalls, maxNum }) => {
   const [lottoBalls, setLottoBalls] = useState([]);
@@ -17,7 +18,7 @@ const Lotto = ({ title = "Lotto", numBalls, maxNum }) => {
   });
 
   return (
-    <div>
+    <div class='container'>
       <h4>{title}</h4>
       {renderBalls}
       <button onClick={() => generateBalls()}>Generate</button>

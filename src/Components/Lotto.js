@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import Ball from "./Ball";
 import "./Lotto.css";
 
 const Lotto = ({ title = "Lotto", numBalls, maxNum }) => {
@@ -17,8 +18,8 @@ const Lotto = ({ title = "Lotto", numBalls, maxNum }) => {
     setLottoBalls(newLottoBalls);
   };
 
-  const renderBalls = lottoBalls.map((ball) => {
-    return <div className='ball'>{ball}</div>;
+  const renderBalls = lottoBalls.map((num) => {
+    return <Ball num={num} />;
   });
 
   return (
